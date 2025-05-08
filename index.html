@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Paper Summarisation Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Research Paper Summarisation Tool</h1>
+        
+        <div class="main-content">
+            <div class="form-section">
+                <div class="email-form">
+                    <label for="emailInput">Email Address</label>
+                    <input type="email" id="emailInput" placeholder="Enter your email to receive notifications">
+                </div>
+
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <p class="upload-text">Drag & Drop your PDF here or</p>
+                    <label for="fileInput" class="custom-file-input">Choose File</label>
+                    <input type="file" id="fileInput" accept="application/pdf" hidden>
+                </div>
+
+                <div class="selected-file" id="selectedFile">
+                    <p>No file selected</p>
+                </div>
+                
+                <button id="uploadButton" class="upload-button" disabled>Upload Research Paper</button>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <div class="status" id="status"></div>
+            </div>
+            
+            <!-- PDF Viewer Container -->
+            <div class="pdf-viewer-container" id="pdfViewerContainer">
+                <div class="pdf-viewer-header">
+                    <h3 id="pdfFileName">PDF Preview</h3>
+                </div>
+                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+            </div>
+        </div>
+        
+        <div class="summaries-section">
+            <h2>Research Paper Summaries</h2>
+            <div class="summaries-grid" id="summariesContainer">
+                <!-- Summaries will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
