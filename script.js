@@ -192,17 +192,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Search Function to call the search API
     function searchPapers(query) {
+
         if (!query || query.trim() === '') {
             // If no search query, load all summaries
             loadSummaries();
             return;
         }
+        console.log("Searching for:", query); 
 
         const searchStatus = document.getElementById('searchStatus');
         if (searchStatus) {
             searchStatus.textContent = 'Searching...';
             searchStatus.className = 'status loading';
         }
+
+        console.log("Calling search endpoint:", SEARCH_API_ENDPOINT);
+        console.log("Sending payload:", JSON.stringify({ query: query }));
+
 
         fetch(SEARCH_API_ENDPOINT, {
             method: 'POST',
@@ -211,8 +217,13 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify({ query: query })
         })
-        .then(res => res.json())
+        .then(res => {
+            console.log("Search response received");
+            return res.json();
+        })
         .then(data => {
+            console.log("Search data:", data);
+
             const summariesContainer = document.getElementById('summariesContainer');
             summariesContainer.innerHTML = '';
 
